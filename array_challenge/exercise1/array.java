@@ -1,5 +1,5 @@
 //declaring an array
-package array_challenge;
+package exercise1;
 
 public class array {
     public static void main(String[]args){//entry point of any java application
