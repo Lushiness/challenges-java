@@ -1,0 +1,56 @@
+public interface deliveryMethod {
+    void deliver(String message);
+}
+
+
+public class gmailApplication implements deliveryMethod{
+    public void deliver(String message){
+        System.out.println("Sending message via Gmail: " + message);
+    }
+    
+}
+
+
+public class main {
+    public static void Main (String[] args){
+        deliveryMethod option1 = new gmailApplication();
+        deliveryMethod option2 = new teamsApplication();
+
+        sendMessage SendMessage = new sendMessage();
+
+
+        SendMessage.deliver(option1,"Hello");
+        SendMessage.deliver(option2,"Hello");
+    }
+}
+
+
+public class sendMessage{
+    public void send(String type, String message){
+        if(type.equals("gmailApplication")){
+            System.out.println("Sending message via gmail: "+message);
+        }
+        else if(type.equals("teamsApplication")){
+            System.out.println("Sending message via teams: "+message);
+        }
+        else{
+            System.out.println("Invalid application type");
+        }
+        
+    }
+}
+
+
+public class sendMessage {
+    public void send(deliveryMethod method, String message) {
+        method.deliver(message);
+    }
+    
+}
+
+public class teamsApplication implements deliveryMethod {
+    public void deliver(String message){
+        System.out.println("Sending message via Teams: "+message);
+    }
+    
+}
